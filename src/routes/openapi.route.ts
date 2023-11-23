@@ -3,6 +3,6 @@ const router = Router();
 import { sendPrompt } from "../controllers/openapi.controller";
 
 
-router.get('/test', sendPrompt);
+router.post('/getStategy', sendPrompt);
 
 module.exports = router
