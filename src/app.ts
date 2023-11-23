@@ -4,6 +4,7 @@ import 'dotenv/config';
 import { errorHandler } from "./middlewares";
 import session from "express-session";
 import cors from "cors";
+import {sendPrompt} from "./controllers/openapi.controller";
 // import passport from "./utils/passport";
 
 const swaggerUi = require("swagger-ui-express");
@@ -33,12 +34,12 @@ app.use(session({
 
 
 //serve all routes dynamically using readdirsync
-readdirSync("./src/routes").map((path) =>
-  app.use("/api/v1", require(`./routes/${path}`))
-);
+// app.use("/api/v1", require(`./routes/openapi.route.ts`))
+
 app.get("/", (req: Request, res: Response) => res.send("Hello World"));
 app.use(errorHandler);
 const port = process.env.PORT || 3000;
+app.post("/api/v1/getStategy",  sendPrompt)
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
