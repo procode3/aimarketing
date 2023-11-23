@@ -39,7 +39,7 @@ app.use(session({
 app.get("/", (req: Request, res: Response) => res.send("Hello World"));
 app.use(errorHandler);
 const port = process.env.PORT || 3000;
-app.post("/api/v1/getStategy",  sendPrompt)
+app.post("/api/v1/getStrategy",  sendPrompt)
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

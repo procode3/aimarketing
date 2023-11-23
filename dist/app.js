@@ -31,7 +31,7 @@ app.use((0, express_session_1.default)({
 app.get("/", (req, res) => res.send("Hello World"));
 app.use(middlewares_1.errorHandler);
 const port = process.env.PORT || 3000;
-app.post("/api/v1/getStategy", openapi_controller_1.sendPrompt);
+app.post("/api/v1/getStrategy", openapi_controller_1.sendPrompt);
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
