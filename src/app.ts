@@ -5,6 +5,7 @@ import { errorHandler } from "./middlewares";
 import session from "express-session";
 import cors from "cors";
 import {sendPrompt} from "./controllers/openapi.controller";
+import {assistMarket} from "./controllers/assistant.controller";
 // import passport from "./utils/passport";
 
 const swaggerUi = require("swagger-ui-express");
@@ -40,6 +41,7 @@ app.get("/", (req: Request, res: Response) => res.send("Hello World"));
 app.use(errorHandler);
 const port = process.env.PORT || 3000;
 app.post("/api/v1/getStrategy",  sendPrompt)
+app.post("/api/v1/assist",  assistMarket)
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

@@ -9,6 +9,7 @@ const middlewares_1 = require("./middlewares");
 const express_session_1 = __importDefault(require("express-session"));
 const cors_1 = __importDefault(require("cors"));
 const openapi_controller_1 = require("./controllers/openapi.controller");
+const assistant_controller_1 = require("./controllers/assistant.controller");
 // import passport from "./utils/passport";
 const swaggerUi = require("swagger-ui-express");
 const swaggerOptions = require("./swagger");
@@ -32,6 +33,7 @@ app.get("/", (req, res) => res.send("Hello World"));
 app.use(middlewares_1.errorHandler);
 const port = process.env.PORT || 3000;
 app.post("/api/v1/getStrategy", openapi_controller_1.sendPrompt);
+app.post("/api/v1/assist", assistant_controller_1.assistMarket);
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
